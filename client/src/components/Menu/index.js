@@ -13,10 +13,22 @@ export function Menu() {
         <nav style={{ flex: 1 }}>
           <MenuLogo src={Logo} />
           <Link to='/Cadastro'>
-            Cadastro
+            Cadastro de usuário
+          </Link>
+          <Link to='/Consulta'>
+            Consulta
+          </Link>
+          <Link to='/Noticias'>
+            Notícias
+          </Link>
+          <Link to='/TablePage'>
+            Table Page
           </Link>
           <Link to='/Login'>
             Login
+          </Link>
+          <Link to='/User'>
+            User
           </Link>
         </nav>
         <nav>
