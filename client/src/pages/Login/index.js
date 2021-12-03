@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles } from "@material-ui/styles";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { Container, Title, Stars, Stars2, Stars3, CardWrapper, Card, Teste, InputCustom } from './styles';
+import { Container, Stars, Stars2, Stars3, CardWrapper, Card, TextFieldCustom, ButtonCustom } from './styles';
 import { useEfetuarLogin } from '../../queries/user';
 import { post } from '../../services/user';
 
@@ -52,25 +52,14 @@ export default function Login() {
       <Stars3 />
       <CardWrapper>
         <Card id="card">
-          <TextField
-            id="outlined-basic"
+          <TextFieldCustom
             label="Email"
-            variant="outlined"
+            id="custom-css-outlined-input"
             onChange={handleEmail}
             size="small"
-            color="secondary"
           />
           <br />
-          {/* <TextField
-            id="outlined-basic"
-            label="Email"
-            variant="outlined"
-            onChange={handleEmail}
-            size="small"
-            color="secondary"
-          />
-          <br /> */}
-          <TextField
+          <TextFieldCustom
             id="outlined-basic"
             label="Senha"
             variant="outlined"
@@ -79,7 +68,15 @@ export default function Login() {
             color="secondary"
           />
           <br />
-          <Button variant="outlined" color="secondary" onClick={efetuarLogin}>ENVIAR</Button>
+          <br />
+          <ButtonCustom id="button teste"
+            variant="outlined"
+            color="secondary"
+            onClick={efetuarLogin}
+          >
+            ENVIAR
+          </ButtonCustom>
+
           <br />
         </Card>
       </CardWrapper>

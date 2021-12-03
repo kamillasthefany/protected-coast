@@ -2,11 +2,45 @@ import styled, { keyframes } from 'styled-components';
 import TextField from '@material-ui/core/TextField';
 import img from '../../assets/img/daniel-olahh.jpg'
 import login from '../../assets/img/login.jpg'
+import Button from "@material-ui/core/Button";
 
-// export const InputCustom = styled.TextField.attrs({
-//   color: 'white',
-//   backgroundColor: 'white',
-// })``;
+export const TextFieldCustom = styled(TextField)({
+  '& label': {
+    color: 'white',
+  },
+  '& label.Mui-focused': {
+    color: 'white',
+  },
+  '& .MuiInput-underline:after': {
+    borderBottomColor: 'white',
+  },
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: 'white',
+    },
+    '&:hover fieldset': {
+      borderColor: 'white',
+      // backgroundColor: 'green',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: 'white',
+      // backgroundColor: 'green',
+    },
+  },
+});
+
+export const ButtonCustom = styled(Button)`
+  && {
+  color: white;
+  border: 1px solid white;
+    :hover {
+      background-color: white;
+      color: #454545;
+      border: 1px solid white;
+      font-weight: bold;
+    }
+  }
+`;
 
 export default styled(TextField)`
   color: white;

@@ -1,10 +1,19 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+
+// export const CSSReset = createGlobalStyle`
+//   body {
+//     box-sizing: border-box !important;
+//     margin: 0 !important;
+//     padding: 0 !important;
+//     font-family: asap; 
+//   }
+// `;
 
 export default createGlobalStyle`
   *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0 !important;
 
     &::-webkit-scrollbar {
       height: 8px;
@@ -39,4 +48,13 @@ export default createGlobalStyle`
   button{
     cursor: pointer;
   }
+`;
+
+export const MainContainer = styled.div`
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 `;
