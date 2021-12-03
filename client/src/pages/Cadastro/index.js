@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Container, CardWrapper, Card } from './styles';
+import { Container, CardWrapper, Card, TextFieldCustom, ButtonCustom } from './styles';
 import { cadastro } from '../../services/user';
 
 
@@ -48,39 +43,35 @@ export default function Cadastro() {
     <Container>
       <CardWrapper>
         <Card id="card">
-          <TextField
+          <TextFieldCustom
             id="outlined-basic"
             label="Nome"
-            variant="outlined"
             onChange={handleNome}
             size="small"
             color="secondary"
             required
           />
           <br />
-          <TextField
+          <TextFieldCustom
             id="outlined-basic"
             label="Email"
-            variant="outlined"
             onChange={handleEmail}
             size="small"
-            color="secondary"
             type="email"
             required
           />
           <br />
-          <TextField
+          <TextFieldCustom
             id="outlined-basic"
             label="Senha"
-            variant="outlined"
             onChange={handleSenha}
             size="small"
-            type="password"
             color="secondary"
+            type="password"
             required
           />
           <br />
-          <Button variant="outlined" color="secondary" onClick={efetuarCadastro}>ENVIAR</Button>
+          <ButtonCustom variant="outlined" color="secondary" onClick={efetuarCadastro}>ENVIAR</ButtonCustom>
           <br />
           <br />
           <a onClick={() => redirectUserLogin()}><small>Já tem uma conta?</small></a>

@@ -1,10 +1,13 @@
 import styled, { keyframes } from 'styled-components';
 import TextField from '@material-ui/core/TextField';
-import img from '../../assets/img/daniel-olahh.jpg'
 import login from '../../assets/img/login.jpg'
 import Button from "@material-ui/core/Button";
 
 export const TextFieldCustom = styled(TextField)({
+  '& input': {
+    color: 'white',
+    backgroundColor: 'transparent',
+  },
   '& label': {
     color: 'white',
   },
@@ -13,6 +16,11 @@ export const TextFieldCustom = styled(TextField)({
   },
   '& .MuiInput-underline:after': {
     borderBottomColor: 'white',
+  },
+  '&.MuiOutlinedInput-notchedOutline': {
+    '& fieldset': {
+      backgroundColor: 'green',
+    },
   },
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
@@ -24,7 +32,7 @@ export const TextFieldCustom = styled(TextField)({
     },
     '&.Mui-focused fieldset': {
       borderColor: 'white',
-      // backgroundColor: 'green',
+      // backgroundColor: '#a6a6a6',
     },
   },
 });
@@ -40,12 +48,6 @@ export const ButtonCustom = styled(Button)`
       font-weight: bold;
     }
   }
-`;
-
-export default styled(TextField)`
-  color: white;
-  background-color: white;
-  height: 80px;
 `;
 
 export const CardWrsapper = styled.div`
