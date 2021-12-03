@@ -50,7 +50,7 @@ const TablePage = () => {
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
             <Card>
-              <CardHeader color="primary">
+              <CardHeader color="gray">
                 <h4 className={classes.cardTitleWhite}>Simple Table</h4>
                 <p className={classes.cardCategoryWhite}>
                   Here is a subtitle for this table
@@ -58,7 +58,7 @@ const TablePage = () => {
               </CardHeader>
               <CardBody>
                 <Table
-                  tableHeaderColor="primary"
+                  tableHeaderColor="gray"
                   tableHead={["Name", "Country", "City", "Salary"]}
                   tableData={[
                     ["Dakota Rice", "Niger", "Oud-Turnhout", "$36,738"],
@@ -74,7 +74,7 @@ const TablePage = () => {
           </GridItem>
           <GridItem xs={12} sm={12} md={12}>
             <Card plain>
-              <CardHeader plain color="primary">
+              <CardHeader plain color="gray">
                 <h4 className={classes.cardTitleWhite}>
                   Table on Plain Background
                 </h4>
@@ -84,7 +84,7 @@ const TablePage = () => {
               </CardHeader>
               <CardBody>
                 <Table
-                  tableHeaderColor="primary"
+                  tableHeaderColor="gray"
                   tableHead={["ID", "Name", "Country", "City", "Salary"]}
                   tableData={[
                     ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout"],

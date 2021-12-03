@@ -2,11 +2,13 @@ import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/styles";
 import InputLabel from "@material-ui/core/InputLabel";
+import Button from '@mui/material/Button';
 // core components
 import GridItem from "../../components/Grid/GridItem.js";
 import GridContainer from "../../components/Grid/GridContainer.js";
 import CustomInput from "../../components/CustomInput/CustomInput.js";
-import Button from "../../components/CustomButtons/Button.js";
+//import Button from "../../components/CustomButtons/Button.js";
+//import RegularButton from "../../components/CustomButtons/Button.js";
 import Card from "../../components/Card/Card.js";
 import CardHeader from "../../components/Card/CardHeader.js";
 // import CardAvatar from "components/Card/CardAvatar.js";
@@ -33,6 +35,9 @@ const styles = {
     fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
     marginBottom: "3px",
     textDecoration: "none",
+  },
+  customButton: {
+    color: "#454545",
   },
 };
 
@@ -118,7 +123,16 @@ export default function UserProfile() {
                 </GridContainer> */}
               </CardBody>
               <CardFooter>
-                <Button color="primary">Salvar</Button>
+                {/* <RegularButton color="primary">Salvar</RegularButton> */}
+                {/* <Button color="primary">Salvar</Button> */}
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="secondary"
+                  sx={{ mt: 3, mb: 2 }}
+                >
+                  Salvar
+                </Button>
               </CardFooter>
             </Card>
           </GridItem>

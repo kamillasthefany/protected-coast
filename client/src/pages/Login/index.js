@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles } from "@material-ui/styles";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { Container, Title, Stars, Stars2, Stars3, CardWrapper, Card, Teste, InputCustom } from './styles';
 import { useEfetuarLogin } from '../../queries/user';
 import { post } from '../../services/user';
 
+const styles = {
+  customButton: {
+    color: "#454545",
+  },
+  color: {
+    gray: "#454545",
+  }
+};
+
+const useStyles = makeStyles(styles);
 
 export default function Login() {
+  const classes = useStyles();
 
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -50,6 +61,15 @@ export default function Login() {
             color="secondary"
           />
           <br />
+          {/* <TextField
+            id="outlined-basic"
+            label="Email"
+            variant="outlined"
+            onChange={handleEmail}
+            size="small"
+            color="secondary"
+          />
+          <br /> */}
           <TextField
             id="outlined-basic"
             label="Senha"
