@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, CardBox, Title, Text, Tags, ContentWrapper, CardContent, TweetWrapper } from './styles';
 
-export const Card = ({ titulo, texto, hashtags }) => {
+export const TransparentCard = ({ titulo, texto, hashtags }) => {
   return (
     <Container id="card">
       <CardBox id="cardbox">

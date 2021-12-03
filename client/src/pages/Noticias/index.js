@@ -8,6 +8,7 @@ import { post } from '../../services/noticia';
 export default function Noticias() {
 
   const [link, setLink] = React.useState('');
+  const [outline, setOutline] = React.useState('');
   const [palavras, setPalavras] = React.useState('');
 
   const handleLink = (event) => {
@@ -19,7 +20,7 @@ export default function Noticias() {
   };
 
   async function cadastrar() {
-    const noticia = { link, palavras };
+    const noticia = { link, outline, palavras };
     const result = await post(noticia);
 
     if (result.status = 200)
@@ -43,12 +44,22 @@ export default function Noticias() {
           />
           <br />
           <br />
+          {/* <TextField
+            id="outlined-textarea"
+            label="Outline"
+            placeholder="Insira o link do outline da notícia"
+            multiline
+            fullWidth
+            onChange={handleLink}
+          />
+          <br />
+          <br /> */}
           <TextField
             id="outlined-multiline-static"
             label="Palavras Chave"
             multiline
             rows={4}
-            placeholder="Insira as palavras chave. O bot irá usá-las"
+            placeholder="Insira as palavras chave. O bot irá mapear as notícias usando as palavras inseridas nesse campo"
             fullWidth
             onChange={handlePalavras}
           />
