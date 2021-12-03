@@ -7,12 +7,13 @@ import Noticias from './pages/Noticias';
 import Teste from './pages/Teste';
 import TablePage from './pages/TablePage';
 import UserProfile from './pages/UserProfile';
+import TesteSimples from './pages/TesteSimples';
 
 export default function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact component={Teste} />
+        <Route path="/" exact component={TesteSimples} />
         <Route path="/login" exact component={Login} />
         <Route path="/cadastro" exact component={Cadastro} />
         <Route path="/consulta" exact component={Consulta} />
