@@ -12,7 +12,7 @@ export function Menu() {
       <div className="container">
         <nav style={{ flex: 1 }}>
           <MenuLogo src={Logo} />
-          <Link to='/Cadastro'>
+          <Link to='/Register'>
             Cadastro de usuário
           </Link>
           <Link to='/Consulta'>
@@ -21,8 +21,8 @@ export function Menu() {
           <Link to='/Noticias'>
             Notícias
           </Link>
-          <Link to='/TablePage'>
-            Table Page
+          <Link to='/Table'>
+            Table
           </Link>
           <Link to='/Login'>
             Login

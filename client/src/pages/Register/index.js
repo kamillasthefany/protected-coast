@@ -3,7 +3,7 @@ import { Container, CardWrapper, Card, TextFieldCustom, ButtonCustom } from './s
 import { cadastro } from '../../services/user';
 
 
-export default function Cadastro() {
+export default function Register() {
 
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');

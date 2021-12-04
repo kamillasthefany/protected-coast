@@ -1,7 +1,10 @@
 
 import React from 'react';
 import {
-  BrowserRouter as Router, Route, Switch, Redirect,
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
 } from 'react-router-dom';
 import Login from '../pages/Login';
 import { Application } from './application';
@@ -17,7 +20,7 @@ export const Routes = () => {
       <Router>
         <Switch>
           {auth && auth.token &&
-            <Route to="/consulta" render={props => <Application {...props} />} />
+            <Route to="/table" render={props => <Application {...props} />} />
           }
           <Route path="/" component={Login} />
           <Redirect to="/" exact component={Login} />
