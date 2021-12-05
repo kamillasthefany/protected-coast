@@ -17,6 +17,7 @@ routes.post('/usuarios', Usuario.create);
 routes.post('/autenticacao', Autenticacao.index);
 routes.post('/esqueci_senha', Autenticacao.esqueciSenha);
 routes.post('/reset_senha', Autenticacao.resetarSenha);
+routes.post('/sair', Autenticacao.logout);
 
 //ARQUIVOS
 routes.get('/noticias', authMiddleware, Noticias.index);

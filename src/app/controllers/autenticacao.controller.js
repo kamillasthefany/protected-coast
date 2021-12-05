@@ -1,5 +1,6 @@
 require("dotenv").config();
 const Usuario = require('../models/Usuario');
+const Token = require('../models/Token');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
@@ -12,7 +13,6 @@ const Autenticacao = {
 
     try {
       const { email, senha } = request.body;
-      console.log('controler autenticação -------', email, senha);
       const usuario = await Usuario.findOne({ where: { email } });
 
       if (!usuario)
@@ -26,6 +26,8 @@ const Autenticacao = {
       const token = jwt.sign({ id: usuario.id }, process.env.SECRET, {
         expiresIn: 86400,
       });
+
+      await Token.create({ token: token.authorization, usuario_id: usuario.id, expira_em: token.expiresIn });
 
       return response.status(200).send({ usuario, token });
     }
@@ -101,6 +103,22 @@ const Autenticacao = {
       console.log('erro', error);
       return response.status(400).send({ error: 'Falha ao resetar senha' });
     }
+  },
+
+  async logout(request, response, next) {
+
+    try {
+      console.log('auth', request.authorization);
+      const tokenReceived = request.headers.authorization;
+      const token = await Token.findOne({ where: { token: tokenReceived } });
+      await token.destroy();
+      return response.status(200).send('sucesso');
+    }
+    catch (error) {
+      console.log('error', error);
+      return response.status(500).json(error);
+    }
+
   },
 };
 

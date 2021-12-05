@@ -2,18 +2,14 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('noticias', {
+    await queryInterface.createTable('token', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
       },
-      link: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      palavras_chave: {
+      token: {
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -22,8 +18,8 @@ module.exports = {
         allowNull: false,
         references: { model: 'usuarios', key: 'id' },
       },
-      aprovado: {
-        type: Sequelize.BOOLEAN,
+      expira_em: {
+        type: Sequelize.DATE,
         allowNull: false,
       },
       created_at: {
@@ -38,6 +34,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('noticias');
+    await queryInterface.dropTable('token');
   }
 };

@@ -5,3 +5,7 @@ export const authenticate = async (usuario) => {
   return result;
 };
 
+export const logout = async (auth) => {
+  const result = await api.post('/sair', auth);
+  return result;
+}

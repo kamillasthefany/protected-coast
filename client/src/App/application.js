@@ -8,6 +8,7 @@ import TablePage from '../pages/TablePage';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Noticias from '../pages/Noticias';
+import Logout from '../components/Logout';
 
 import { withAuthorizationRouter } from './auth';
 
@@ -49,6 +50,11 @@ export function Application() {
           exact
           path="/noticias"
           component={withAuthorizationRouter(Noticias)}
+        />
+        <Route
+          exact
+          path="/sair"
+          component={withAuthorizationRouter(Logout)}
         />
       </Switch>
     </>

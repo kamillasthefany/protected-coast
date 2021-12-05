@@ -21,6 +21,18 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true,
       },
+      aprovado: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+      },
+      deletado: {
+        type: Sequelize.BOOLEAN,
+        allowNull: true,
+      },
+      admin: {
+        type: Sequelize.BOOLEAN,
+        allowNull: true,
+      },
       reset_token: {
         type: Sequelize.STRING,
         allowNull: true,
