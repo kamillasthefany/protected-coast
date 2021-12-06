@@ -12,6 +12,7 @@ import { useHistory } from 'react-router-dom';
 export function Menu() {
   const [isMenuOpen, setMenuState] = useState(false);
   const [{ auth }] = UseAuthProvider();
+  
   const history = useHistory();
 
   async function efetuarLogout() {

@@ -14,7 +14,6 @@ const Autenticacao = {
     try {
       const { email, senha } = request.body;
       const usuario = await Usuario.findOne({ where: { email } });
-
       if (!usuario)
         return response.status(400).send({ erro: 'Usuário não encontrado' });
 
@@ -27,7 +26,24 @@ const Autenticacao = {
         expiresIn: 86400,
       });
 
-      await Token.create({ token: token.authorization, usuario_id: usuario.id, expira_em: token.expiresIn });
+      console.log('token', token);
+
+      let hoje = new Date();
+      let amanha = new Date();
+      amanha.setDate(hoje.getDate() + 1);
+
+      // console.log('token', token);
+      // console.log('amanha', amanha);
+
+      const newToken = {
+        token: token,
+        usuario_id: usuario.id,
+        expira_em: amanha.getDate()
+      };
+
+      console.log('novo token', newToken);
+
+      await Token.create(newToken);
 
       return response.status(200).send({ usuario, token });
     }
@@ -108,8 +124,10 @@ const Autenticacao = {
   async logout(request, response, next) {
 
     try {
-      console.log('auth', request.authorization);
+      const { auth } = request.body;
+      console.log('auth', auth);
       const tokenReceived = request.headers.authorization;
+      console.log('auth', tokenReceived);
       const token = await Token.findOne({ where: { token: tokenReceived } });
       await token.destroy();
       return response.status(200).send('sucesso');

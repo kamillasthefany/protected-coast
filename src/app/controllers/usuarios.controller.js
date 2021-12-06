@@ -2,20 +2,23 @@ const Usuario = require('../models/Usuario');
 const bcrypt = require('bcrypt');
 
 const Usuarios = {
-    all(request, res, next) {
-        Usuario.findAll().then((result) => {
-            console.log('userId', request.userId);
-            res.json(result);
-        })
-            .catch(next);
-    },
+    async all(request, response) {
+        try {
+            const usuarios = await Usuario.findAll();
+            return response.status(200).json(usuarios);
+        }
+        catch (error) {
+            console.log('error', error);
+            return response.status(500).json(error);
+        }
 
-    async create(request, response, next) {
+    },
+    async create(request, response) {
 
         try {
             const { nome, email, senha } = request.body;
             const senhaBcrypt = await bcrypt.hash(senha, 10);
-            const usuario = await Usuario.create({ nome, email, senha: senhaBcrypt });
+            const usuario = await Usuario.create({ nome, email, senha: senhaBcrypt, admin: false, aprovado: false, deletado: false });
             return response.status(201).json(usuario);
         }
         catch (error) {

@@ -6,6 +6,7 @@ export const authenticate = async (usuario) => {
 };
 
 export const logout = async (auth) => {
+  console.log('auth', auth);
   const result = await api.post('/sair', auth);
   return result;
 }
