@@ -32,19 +32,13 @@ const Autenticacao = {
       let amanha = new Date();
       amanha.setDate(hoje.getDate() + 1);
 
-      // console.log('token', token);
-      // console.log('amanha', amanha);
-
       const newToken = {
         token: token,
         usuario_id: usuario.id,
-        expira_em: amanha.getDate()
+        expira_em: amanha
       };
 
-      console.log('novo token', newToken);
-
       await Token.create(newToken);
-
       return response.status(200).send({ usuario, token });
     }
     catch (error) {
