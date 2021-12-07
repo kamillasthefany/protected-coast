@@ -39,13 +39,16 @@ const Autenticacao = {
       };
 
       await Token.create(newToken);
+
+      usuario.senha = undefined;
+
       return response.status(200).send({ usuario, token });
     }
     catch (error) {
       console.log('error', error);
-      return response.status(500).json(error);
-    }
+      return response.status(500).send({ error: `Falha ao autenticar ${error}` });
 
+    }
   },
   async esqueciSenha(request, response, next) {
     try {
@@ -120,9 +123,9 @@ const Autenticacao = {
     try {
       const { auth } = request.body;
       console.log('auth', auth);
-      const tokenReceived = request.headers.authorization;
-      console.log('auth', tokenReceived);
-      const token = await Token.findOne({ where: { token: tokenReceived } });
+      const tokenReceived = request.authorization;
+      console.log('authorization', tokenReceived);
+      const token = await Token.findOne({ where: { token: auth.token } });
       await token.destroy();
       return response.status(200).send('sucesso');
     }

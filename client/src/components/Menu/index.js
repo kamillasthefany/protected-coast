@@ -12,13 +12,18 @@ import { useHistory } from 'react-router-dom';
 export function Menu() {
   const [isMenuOpen, setMenuState] = useState(false);
   const [{ auth }] = UseAuthProvider();
-  
+
   const history = useHistory();
 
   async function efetuarLogout() {
+    console.log('auth sair', auth);
     const result = await logout(auth);
     if (result.status === 200) {
-      history.push('/login');
+
+      localStorage.clear();
+      sessionStorage.clear();
+      history.push('/');
+      window.location.reload();
     } else {
       console.log('Erro');
     }
@@ -51,7 +56,7 @@ export function Menu() {
           <div style={{ marginRight: '1rem' }}>
             <input placeholder="Pesquisar" />
           </div>
-          <a href='#' onClick={() => efetuarLogout()}>
+          <a href='/' onClick={() => efetuarLogout()}>
             Sair
           </a>
           <button onClick={() => setMenuState(!isMenuOpen)}>
