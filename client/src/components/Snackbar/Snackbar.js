@@ -1,11 +1,11 @@
 import React from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/styles";
 import Snack from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import Close from "@material-ui/icons/Close";
-import styles from "assets/jss/material-dashboard-react/components/snackbarContentStyle.js";
+import styles from "../../assets/jss/material-dashboard-react/components/snackbarContentStyle.js";
 
 const useStyles = makeStyles(styles);
 
@@ -37,8 +37,8 @@ export default function Snackbar(props) {
           place.indexOf("l") !== -1
             ? "left"
             : place.indexOf("c") !== -1
-            ? "center"
-            : "right",
+              ? "center"
+              : "right",
       }}
       open={open}
       message={

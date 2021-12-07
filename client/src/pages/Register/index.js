@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, CardWrapper, Card, TextFieldCustom, ButtonCustom } from './styles';
-import { Snackbar } from '../../components/Snackbar/Snackbar';
+import Snackbar from '../../components/Snackbar/Snackbar';
 import { cadastro } from '../../services/user';
 
 
