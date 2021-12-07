@@ -1,3 +1,4 @@
+/* eslint-disable  */
 import React, { useState } from 'react';
 import { logout } from '../../services/auth';
 import { MenuWrapper, MenuLogo } from './styles';
@@ -6,6 +7,7 @@ import MenuOpen from '../../assets/icons/menu-open.svg';
 import MenuClosed from '../../assets/icons/menu-closed.svg';
 import { Link } from 'react-router-dom';
 import { UseAuthProvider } from '../../contexts/authContext';
+import { useEfetuarLogout } from '../../queries/user';
 import { useHistory } from 'react-router-dom';
 
 
@@ -17,8 +19,10 @@ export function Menu() {
 
   async function efetuarLogout() {
     console.log('auth sair', auth);
-    const result = await logout(auth);
-    if (result.status === 200) {
+    const resultado = await logout(auth);
+    //const resultado = await useEfetuarLogout(auth);
+    console.log('result', resultado);
+    if (resultado.status === 200) {
 
       localStorage.clear();
       sessionStorage.clear();
@@ -56,7 +60,7 @@ export function Menu() {
           <div style={{ marginRight: '1rem' }}>
             <input placeholder="Pesquisar" />
           </div>
-          <a href='/' onClick={() => efetuarLogout()}>
+          <a onClick={() => efetuarLogout()} style={{ cursor: 'pointer' }}>
             Sair
           </a>
           <button onClick={() => setMenuState(!isMenuOpen)}>
