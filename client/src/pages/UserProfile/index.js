@@ -11,10 +11,12 @@ import Card from "../../components/Card/Card.js";
 import CardHeader from "../../components/Card/CardHeader.js";
 import CardBody from "../../components/Card/CardBody.js";
 import CardFooter from "../../components/Card/CardFooter.js";
-import { Container, ButtonCustom } from './styles';
+import { Container, ButtonCustom, TextFieldCustom, CustomTextField } from './styles';
 import { Menu } from '../../components/Menu';
 import BtnCustom from '../../components/BtnCustom';
 import { useSalvarNoticia } from "../../queries/noticias/index.js";
+import { post } from "../../services/noticia/index.js";
+import TextField from '@material-ui/core/TextField';
 
 const styles = {
   cardCategoryWhite: {
@@ -60,7 +62,7 @@ export default function UserProfile() {
 
   async function cadastrar() {
     const noticia = { link, outline, palavras };
-    const result = await useSalvarNoticia(noticia);
+    const result = await post(noticia);
 
     if (result.status = 200) {
       console.log('sucesso');
@@ -70,7 +72,6 @@ export default function UserProfile() {
     }
 
   }
-
 
   const classes = useStyles();
   return (
@@ -89,27 +90,31 @@ export default function UserProfile() {
                 <br />
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={12}>
-                    <CustomInput
-                      labelText="Link"
-                      id="link"
+                    <CustomTextField
+                      required
+                      id="filled-required"
+                      label="Link"
+                      defaultValue=""
+                      variant="standard"
                       onChange={handleLink}
-                      formControlProps={{
-                        fullWidth: true,
-                      }}
+                      fullWidth
                     />
+                    <br />
+                    <br />
                   </GridItem>
                 </GridContainer>
                 <br />
                 <br />
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={12}>
-                    <CustomInput
-                      labelText="Link outline"
-                      id="outline"
+                    <CustomTextField
+                      required
+                      id="filled-required"
+                      label="Link outline"
+                      defaultValue=""
+                      variant="standard"
                       onChange={handleOutline}
-                      formControlProps={{
-                        fullWidth: true,
-                      }}
+                      fullWidth
                     />
                   </GridItem>
                 </GridContainer>
@@ -117,13 +122,14 @@ export default function UserProfile() {
                 <br />
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={12}>
-                    <CustomInput
-                      labelText="Palavras chave"
+                    <CustomTextField
+                      required
+                      id="filled-required"
+                      label="Palavras chave"
+                      defaultValue=""
+                      variant="standard"
                       onChange={handlePalavras}
-                      id="palavras"
-                      formControlProps={{
-                        fullWidth: true,
-                      }}
+                      fullWidth
                     />
                   </GridItem>
                 </GridContainer>
@@ -134,7 +140,7 @@ export default function UserProfile() {
                   color="secondary"
                   onClick={() => cadastrar()}
                 >
-                  ENVIAR
+                  Enviar
                 </ButtonCustom>
               </CardFooter>
             </Card>

@@ -10,11 +10,17 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: rgba(250, 250, 250, 0.59); 
+    color: rgba(250, 250, 250, 0.85); 
+
+    &:hover {
+        color: rgba(250, 250, 250);
+    }
 
     h2{
         line-height: 0!important;
     }
+
+   
 `;
 
 
