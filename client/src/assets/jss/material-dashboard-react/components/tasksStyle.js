@@ -2,6 +2,7 @@ import {
   defaultFont,
   primaryColor,
   dangerColor,
+  customColor,
   grayColor,
 } from "../../material-dashboard-react.js";
 import tooltipStyle from "../../material-dashboard-react/tooltipStyle.js";

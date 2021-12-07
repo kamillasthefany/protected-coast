@@ -6,6 +6,7 @@ import {
   warningColor,
   dangerColor,
   grayColor,
+  customColor,
 } from "../../material-dashboard-react.js";
 
 const typographyStyle = {
@@ -50,6 +51,9 @@ const typographyStyle = {
   },
   dangerText: {
     color: dangerColor[0],
+  },
+  customText: {
+    color: customColor[0],
   },
 };
 

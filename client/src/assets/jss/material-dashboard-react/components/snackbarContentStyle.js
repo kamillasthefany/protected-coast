@@ -6,6 +6,7 @@ import {
   warningBoxShadow,
   dangerBoxShadow,
   roseBoxShadow,
+  grayBoxShadow,
   whiteColor,
   blackColor,
   grayColor,
@@ -15,6 +16,7 @@ import {
   roseColor,
   primaryColor,
   warningColor,
+  customColor,
   hexToRgb,
 } from "../../material-dashboard-react.js";
 
@@ -77,6 +79,11 @@ const snackbarContentStyle = {
     color: whiteColor,
     ...roseBoxShadow,
   },
+  custom: {
+    backgroundColor: customColor[3],
+    color: whiteColor,
+    ...grayBoxShadow,
+  },
   message: {
     padding: "0",
     display: "block",
@@ -117,6 +124,9 @@ const snackbarContentStyle = {
   },
   roseIcon: {
     color: roseColor[3],
+  },
+  customIcon: {
+    color: grayColor[3],
   },
   iconMessage: {
     paddingLeft: "50px",

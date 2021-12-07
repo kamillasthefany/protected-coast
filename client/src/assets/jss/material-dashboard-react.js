@@ -1,18 +1,3 @@
-/*!
-
- =========================================================
- * Material Dashboard React - v1.10.0 based on Material Dashboard - v1.2.0
- =========================================================
-
- * Product Page: http://www.creative-tim.com/product/material-dashboard-react
- * Copyright 2021 Creative Tim (http://www.creative-tim.com)
- * Licensed under MIT (https://github.com/creativetimofficial/material-dashboard-react/blob/master/LICENSE.md)
-
- =========================================================
-
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
- */
 
 // ##############################
 // // // Function that converts from hex color to rgb color
@@ -47,10 +32,6 @@ const hexToRgb = (input) => {
   );
 };
 
-// ##############################
-// // // Variables - Styles that are used on more than one component
-// #############################
-
 const drawerWidth = 260;
 
 const transition = {
@@ -76,7 +57,8 @@ const dangerColor = ["#f44336", "#ef5350", "#e53935", "#f55a4e"];
 const successColor = ["#4caf50", "#66bb6a", "#43a047", "#5cb860"];
 const infoColor = ["#00acc1", "#26c6da", "#00acc1", "#00d3ee"];
 const roseColor = ["#e91e63", "#ec407a", "#d81b60", "#eb3573"];
-const secondGrayColor = ["#454545", "#555555", "#757575", "#777"];
+const LightGrayColor = ["#454545", "#555555", "#757575", "#777"];
+const customColor = ["#454545", "#555555", "#757575", "#777"];
 const grayColor = [
   "#999",
   "#777",
@@ -159,7 +141,7 @@ const grayBoxShadow = {
     "0 4px 20px 0 rgba(" +
     hexToRgb(blackColor) +
     ",.14), 0 7px 10px -5px rgba(" +
-    hexToRgb(secondGrayColor[0]) +
+    hexToRgb(LightGrayColor[0]) +
     ",.4)",
 };
 
@@ -196,7 +178,7 @@ const roseCardHeader = {
 
 const grayCardHeader = {
   background:
-    "linear-gradient(60deg, " + secondGrayColor[1] + ", " + secondGrayColor[2] + ")",
+    "linear-gradient(60deg, " + LightGrayColor[1] + ", " + LightGrayColor[2] + ")",
   ...grayBoxShadow,
 };
 
@@ -293,7 +275,8 @@ export {
   successColor,
   infoColor,
   roseColor,
-  secondGrayColor,
+  LightGrayColor,
+  customColor,
   grayColor,
   blackColor,
   whiteColor,

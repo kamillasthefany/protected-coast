@@ -5,6 +5,7 @@ import {
   defaultBoxShadow,
   infoColor,
   successColor,
+  customColor,
   warningColor,
   dangerColor,
   whiteColor,
@@ -74,6 +75,11 @@ const headerStyle = () => ({
   },
   danger: {
     backgroundColor: dangerColor[0],
+    color: whiteColor,
+    ...defaultBoxShadow,
+  },
+  custom: {
+    backgroundColor: customColor[0],
     color: whiteColor,
     ...defaultBoxShadow,
   },
