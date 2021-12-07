@@ -26,8 +26,6 @@ const Autenticacao = {
         expiresIn: 86400,
       });
 
-      console.log('token', token);
-
       let hoje = new Date();
       let amanha = new Date();
       amanha.setDate(hoje.getDate() + 1);
@@ -84,7 +82,6 @@ const Autenticacao = {
 
     }
     catch (error) {
-      console.log('erro', error);
       return response.status(400).send({ error: 'Falha ao resetar senha' });
     }
   },
@@ -113,7 +110,6 @@ const Autenticacao = {
 
     }
     catch (error) {
-      console.log('erro', error);
       return response.status(400).send({ error: 'Falha ao resetar senha' });
     }
   },
@@ -130,7 +126,6 @@ const Autenticacao = {
       return response.status(200).send('sucesso');
     }
     catch (error) {
-      console.log('error', error);
       return response.status(500).json(error);
     }
 

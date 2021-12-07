@@ -1,11 +1,10 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-
-import Cadastro from '../pages/Register';
 import Consulta from '../pages/Consulta';
 import UserProfile from '../pages/UserProfile';
 import TablePage from '../pages/TablePage';
 import Login from '../pages/Login';
+import Home from '../pages/Home';
 import Register from '../pages/Register';
 import Noticias from '../pages/Noticias';
 import Logout from '../components/Logout';
@@ -50,6 +49,11 @@ export function Application() {
           exact
           path="/noticias"
           component={withAuthorizationRouter(Noticias)}
+        />
+        <Route
+          exact
+          path="/home"
+          component={withAuthorizationRouter(Home)}
         />
         <Route
           exact

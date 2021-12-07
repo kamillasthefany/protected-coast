@@ -37,7 +37,6 @@ export default function Login() {
 
     const result = await authenticate(usuario);
     if (result.status === 200) {
-      console.log('resultado', result);
       const auth = {
         user: result.data.usuario,
         token: result.data.token,

@@ -26,7 +26,6 @@ export default function Noticias() {
     if (result.status = 200)
       console.log('sucesso');
 
-    console.log('resultado', result);
   }
 
   return (

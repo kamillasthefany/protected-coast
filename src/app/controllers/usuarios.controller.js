@@ -8,7 +8,6 @@ const Usuarios = {
             return response.status(200).json(usuarios);
         }
         catch (error) {
-            console.log('error', error);
             return response.status(500).json(error);
         }
 
@@ -22,7 +21,6 @@ const Usuarios = {
             return response.status(201).json(usuario);
         }
         catch (error) {
-            console.log('error', error);
             return response.status(500).json(error);
         }
 

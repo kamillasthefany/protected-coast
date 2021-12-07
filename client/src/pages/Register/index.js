@@ -22,7 +22,7 @@ export default function Register() {
   }
 
   const redirectUser = () => {
-    window.location.href = '/home';
+    window.location.href = '/login';
   };
 
   const redirectUserLogin = () => {
@@ -35,8 +35,6 @@ export default function Register() {
 
     if (result.status = 200)
       redirectUser();
-
-    console.log('resultado', result);
   }
 
   return (

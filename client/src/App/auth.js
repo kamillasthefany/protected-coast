@@ -7,7 +7,6 @@ export function withAuthorizationRouter(Component) {
   const [user] = useContext(AuthContext);
   class AuthenticatedComponent extends React.Component {
     render() {
-      console.log('user', user);
       const token = user.token;
       const authenticating = (isAuth) => {
         if (isAuth === null) {

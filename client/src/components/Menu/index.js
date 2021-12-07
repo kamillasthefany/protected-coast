@@ -18,10 +18,8 @@ export function Menu() {
   const history = useHistory();
 
   async function efetuarLogout() {
-    console.log('auth sair', auth);
     const resultado = await logout(auth);
     //const resultado = await useEfetuarLogout(auth);
-    console.log('result', resultado);
     if (resultado.status === 200) {
 
       localStorage.clear();

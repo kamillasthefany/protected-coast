@@ -15,13 +15,11 @@ const Noticias = {
   async create(request, response, next) {
 
     try {
-      console.log('controlelr');
       const { link, palavras } = request.body;
       const result = await Noticia.create({ link, palavras_chave: palavras, aprovado: false, usuario_id: 2 });
       return response.status(201).json(result);
     }
     catch (error) {
-      console.log('error', error);
       return response.status(500).json(error);
     }
 

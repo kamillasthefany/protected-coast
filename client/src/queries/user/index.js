@@ -6,7 +6,6 @@ export const useEfetuarLogin = (usuario) => {
   const { isLoading, data, isError } = useQuery("login", () =>
     post(usuario)
   );
-  console.log('front service', data?.data);
   return {
     isLoading: isLoading,
     data: data?.data,
@@ -18,7 +17,6 @@ export const useEfetuarLogout = (usuario) => {
   const { isLoading, data, isError } = useQuery("logout", () =>
     logout(usuario)
   );
-  console.log('front service', data?.data);
   return {
     isLoading: isLoading,
     data: data?.data,
