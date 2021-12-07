@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable  */
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/styles";
 import Button from '@mui/material/Button';
 import GridItem from "../../components/Grid/GridItem.js";
@@ -10,9 +11,10 @@ import Card from "../../components/Card/Card.js";
 import CardHeader from "../../components/Card/CardHeader.js";
 import CardBody from "../../components/Card/CardBody.js";
 import CardFooter from "../../components/Card/CardFooter.js";
-import { Container } from './styles';
+import { Container, ButtonCustom } from './styles';
 import { Menu } from '../../components/Menu';
 import BtnCustom from '../../components/BtnCustom';
+import { useSalvarNoticia } from "../../queries/noticias/index.js";
 
 const styles = {
   cardCategoryWhite: {
@@ -39,6 +41,37 @@ const styles = {
 const useStyles = makeStyles(styles);
 
 export default function UserProfile() {
+  const [link, setLink] = useState('');
+  const [outline, setOutline] = useState('');
+  const [palavras, setPalavras] = useState('');
+
+  const handleLink = (event) => {
+    setLink(event.target.value);
+    console.log('link', link);
+  };
+
+  const handleOutline = (event) => {
+    setOutline(event.target.value);
+  };
+
+  const handlePalavras = (event) => {
+    setPalavras(event.target.value);
+  };
+
+  async function cadastrar() {
+    const noticia = { link, outline, palavras };
+    const result = await useSalvarNoticia(noticia);
+
+    if (result.status = 200) {
+      console.log('sucesso');
+    }
+    else {
+      console.log('erro');
+    }
+
+  }
+
+
   const classes = useStyles();
   return (
     <div>
@@ -58,7 +91,8 @@ export default function UserProfile() {
                   <GridItem xs={12} sm={12} md={12}>
                     <CustomInput
                       labelText="Link"
-                      id="first-name"
+                      id="link"
+                      onChange={handleLink}
                       formControlProps={{
                         fullWidth: true,
                       }}
@@ -71,7 +105,8 @@ export default function UserProfile() {
                   <GridItem xs={12} sm={12} md={12}>
                     <CustomInput
                       labelText="Link outline"
-                      id="first-name"
+                      id="outline"
+                      onChange={handleOutline}
                       formControlProps={{
                         fullWidth: true,
                       }}
@@ -84,7 +119,8 @@ export default function UserProfile() {
                   <GridItem xs={12} sm={12} md={12}>
                     <CustomInput
                       labelText="Palavras chave"
-                      id="first-name"
+                      onChange={handlePalavras}
+                      id="palavras"
                       formControlProps={{
                         fullWidth: true,
                       }}
@@ -93,18 +129,14 @@ export default function UserProfile() {
                 </GridContainer>
               </CardBody>
               <CardFooter>
-                <BtnCustom color="primary">Update Profile</BtnCustom>
-              </CardFooter>
-              {/* <CardFooter>
-                <RegularButton
-                  type="submit"
-                  variant="contained"
+                <ButtonCustom id="button teste"
+                  variant="outlined"
                   color="secondary"
-                  sx={{ mt: 3, mb: 2 }}
+                  onClick={() => cadastrar()}
                 >
-                  Salvar
-                </RegularButton>
-              </CardFooter> */}
+                  ENVIAR
+                </ButtonCustom>
+              </CardFooter>
             </Card>
           </GridItem>
         </GridContainer>

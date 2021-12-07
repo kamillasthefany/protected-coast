@@ -24,7 +24,7 @@ export default function Register() {
   }
 
   const redirectUser = () => {
-    window.location.href = '/login';
+    window.location.href = '/aguarde';
   };
 
   const redirectUserLogin = () => {

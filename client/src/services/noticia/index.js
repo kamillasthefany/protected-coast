@@ -5,3 +5,8 @@ export const post = async (noticia) => {
   return result;
 };
 
+export const get = async () => {
+  const result = await api.get('/noticias');
+  return result;
+};
+

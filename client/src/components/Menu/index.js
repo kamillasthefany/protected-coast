@@ -17,6 +17,10 @@ export function Menu() {
 
   const history = useHistory();
 
+  const redirectUser = () => {
+    history.push('/home');
+  };
+
   async function efetuarLogout() {
     const resultado = await logout(auth);
     //const resultado = await useEfetuarLogout(auth);
@@ -34,10 +38,7 @@ export function Menu() {
     <MenuWrapper isMenuOpen={isMenuOpen}>
       <div className="container">
         <nav style={{ flex: 1 }}>
-          <MenuLogo src={Logo} />
-          <Link to='/Register'>
-            Cadastro de usuário
-          </Link>
+          <MenuLogo src={Logo} onClick={() => redirectUser()} style={{ cursor: 'pointer' }} />
           <Link to='/Consulta'>
             Consulta
           </Link>
@@ -47,11 +48,11 @@ export function Menu() {
           <Link to='/Table'>
             Table
           </Link>
-          <Link to='/Login'>
-            Login
-          </Link>
           <Link to='/User'>
             User
+          </Link>
+          <Link to='/Aguarde'>
+            404
           </Link>
         </nav>
         <nav>

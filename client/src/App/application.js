@@ -7,6 +7,7 @@ import Login from '../pages/Login';
 import Home from '../pages/Home';
 import Register from '../pages/Register';
 import Noticias from '../pages/Noticias';
+import PaginaDeEspera from '../pages/PaginaDeEspera';
 import Logout from '../components/Logout';
 
 import { withAuthorizationRouter } from './auth';
@@ -59,6 +60,11 @@ export function Application() {
           exact
           path="/sair"
           component={withAuthorizationRouter(Logout)}
+        />
+        <Route
+          exact
+          path="/aguarde"
+          component={PaginaDeEspera}
         />
       </Switch>
     </>
