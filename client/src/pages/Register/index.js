@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Container, CardWrapper, Card, TextFieldCustom, ButtonCustom } from './styles';
+import { Snackbar } from '../../components/Snackbar/Snackbar';
 import { cadastro } from '../../services/user';
 
 
 export default function Register() {
 
+  const [notification, setNotification] = useState(false);
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -39,6 +41,10 @@ export default function Register() {
 
   return (
     <Container>
+      {
+        notification &&
+        <Snackbar />
+      }
       <CardWrapper>
         <Card id="card">
           <TextFieldCustom
