@@ -1,19 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-// @material-ui/core components
 import { makeStyles } from "@material-ui/styles";
 import Table from "@material-ui/core/Table";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
-// core components
 import styles from "../../assets/jss/material-dashboard-react/components/tableStyle.js";
 const useStyles = makeStyles(styles);
 
 export default function CustomTable(props) {
   const classes = useStyles();
-  const { tableHead, tableData, tableHeaderColor } = props;
+  const [conteudo, setConteudo] = useState([]);
+  const [chave, setChave] = useState([]);
+  const { tableHead, tableData, tableHeaderColor, tableContent, tableTitles } = props;
+
+  useEffect(async () => {
+    await tratarConteudo();
+  }, [tableContent]);
+
+  const tratarConteudo = async () => {
+    // if (tableContent) {
+    //   const listaFinal = tableContent?.map((item) =>
+    //   {
+    //     let teste = []
+    //     tableTitles.map((titulo) => {
+    //       teste.push(item.titulo);          
+    //     })
+    //   }
+
+    //   );
+    //   console.log('componente', listaFinal);
+    //   setConteudo(listaFinal);
+    // }
+  };
+
+
   return (
     <div className={classes.tableResponsive}>
       <Table className={classes.table}>
@@ -35,6 +57,7 @@ export default function CustomTable(props) {
         ) : null}
         <TableBody>
           {tableData.map((prop, key) => {
+            // console.log('datatable', prop)
             return (
               <TableRow key={key} className={classes.tableBodyRow}>
                 {prop.map((prop, key) => {

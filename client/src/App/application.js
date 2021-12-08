@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Consulta from '../pages/Consulta';
 import UserProfile from '../pages/UserProfile';
 import TablePage from '../pages/TablePage';
+import TableTeste from '../pages/Table';
 import Login from '../pages/Login';
 import Home from '../pages/Home';
 import Register from '../pages/Register';
@@ -65,6 +66,11 @@ export function Application() {
           exact
           path="/aguarde"
           component={PaginaDeEspera}
+        />
+        <Route
+          exact
+          path="/listar"
+          component={TableTeste}
         />
       </Switch>
     </>

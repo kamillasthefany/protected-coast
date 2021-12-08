@@ -54,6 +54,9 @@ export function Menu() {
           <Link to='/Aguarde'>
             404
           </Link>
+          <Link to='/Listar'>
+            Listar Notícias
+          </Link>
         </nav>
         <nav>
           <div style={{ marginRight: '1rem' }}>

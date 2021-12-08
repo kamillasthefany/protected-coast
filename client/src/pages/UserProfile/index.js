@@ -90,7 +90,7 @@ export default function UserProfile() {
                 <br />
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={12}>
-                    <CustomTextField
+                    {/* <CustomTextField
                       required
                       id="filled-required"
                       label="Link"
@@ -98,6 +98,18 @@ export default function UserProfile() {
                       variant="standard"
                       onChange={handleLink}
                       fullWidth
+                    /> */}
+                    <CustomInput
+                      required
+                      id="filled-required"
+                      labelText="Link"
+                      inputProps={{
+                        value: link,
+                        onChange: handleLink
+                      }}
+                      formControlProps={{
+                        fullWidth: true
+                      }}
                     />
                     <br />
                     <br />
